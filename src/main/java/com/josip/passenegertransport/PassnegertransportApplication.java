@@ -1,4 +1,4 @@
-package com.josip.passnegertransport;
+package com.josip.passenegertransport;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
