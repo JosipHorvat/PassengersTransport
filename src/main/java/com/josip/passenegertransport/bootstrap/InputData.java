@@ -45,15 +45,15 @@ public class InputData implements ApplicationListener<ContextRefreshedEvent> {
         log.debug("****************LOADING DATA FROM BOOTSTRAP****************");
         log.debug("***********************************************************");
 
-        if(!operatorRepository.findAll().equals(10)){
+        if(operatorRepository.findAll().equals(0)){
             log.debug("Loading operators");
             operatorRepository.saveAll(getOperators());
         }
-        if(!manufacturerRepository.findAll().equals(10)){
+        if(manufacturerRepository.findAll().equals(0)){
             log.debug("Loading Manufacturers & Vehicles");
             manufacturerRepository.saveAll(getManufacturers());
         }
-        if(!driverRepository.findAll().equals(10)){
+        if(driverRepository.findAll().equals(0)){
             driverRepository.saveAll(getDrivers());
             log.debug("Loading Drivers & certain driver current transport of passengers");
         }
