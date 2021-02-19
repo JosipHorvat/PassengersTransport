@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Slf4j
@@ -25,5 +26,15 @@ public class OperatorServiceImpl implements OperatorService {
         Set<Operator> operatorSet = new HashSet<>();
         operatorRepository.findAll().iterator().forEachRemaining(operatorSet::add);
         return operatorSet;
+    }
+
+    @Override
+    public Operator findById(Long id) {
+
+        Optional<Operator> operatorOptional = operatorRepository.findById(id);
+        if(!operatorOptional.isPresent()){
+            throw new RuntimeException("Operator not found!");
+        }
+        return operatorOptional.get();
     }
 }

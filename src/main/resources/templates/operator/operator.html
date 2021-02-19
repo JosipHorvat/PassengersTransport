@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Recipe Home</title>
+    <title>Operators Home</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -34,10 +34,8 @@
                                 <th>ID</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
-                                <th>Email</th>
-                                <th>Oib</th>
-                                <th>Role</th>
-                                <th>Delete</th>
+                                <th>View</th>
+                                <th>Update</th>
                             </tr>
                             </thead>
                             <tr th:remove="all">
@@ -54,10 +52,8 @@
                                 <td th:text="${operator.id}">334</td>
                                 <td th:text="${operator.getFirstName()}">Operator 1</td>
                                 <td th:text="${operator.getLastName()}"></td>
-                                <td th:text="${operator.getEmail()}"></td>
-                                <td th:text="${operator.getOib()}"></td>
-                                <td th:text="${operator.getRole()}"></td>
-                                <td><a href="#">Delete</a></td>
+                                <td><a href="#" th:href="@{'/operator/' + ${operator.id} + '/show'}">View</a></td>
+                                <td><a href="#">Update</a></td>
 
                             </tr>
                         </table>

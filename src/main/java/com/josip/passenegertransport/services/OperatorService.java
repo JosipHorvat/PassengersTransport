@@ -7,4 +7,6 @@ import java.util.Set;
 public interface OperatorService {
 
     Set<Operator> getOperators();
+
+    Operator findById(Long id);
 }
