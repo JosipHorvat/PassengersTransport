@@ -37,4 +37,9 @@ public class OperatorServiceImpl implements OperatorService {
         }
         return operatorOptional.get();
     }
+
+    @Override
+    public void deleteById(Long idToDelete) {
+        operatorRepository.deleteById(idToDelete);
+    }
 }

@@ -9,4 +9,6 @@ public interface OperatorService {
     Set<Operator> getOperators();
 
     Operator findById(Long id);
+
+    void deleteById(Long idToDelete);
 }

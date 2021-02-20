@@ -32,4 +32,14 @@ public class OperatorController {
         model.addAttribute("operator", operatorService.findById(Long.valueOf(id)));
         return "operator/show";
     }
+
+    @GetMapping("operator/{id}/delete")
+    public String deleteById(@PathVariable String id){
+        operatorService.deleteById(Long.valueOf(id));
+        log.debug("Deleted by ID: " + id);
+
+        return "redirect:/operators";
+        // After deleting i am going back to list of operators
+    }
+
 }
