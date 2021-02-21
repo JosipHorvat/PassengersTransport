@@ -42,4 +42,9 @@ public class OperatorServiceImpl implements OperatorService {
     public void deleteById(Long idToDelete) {
         operatorRepository.deleteById(idToDelete);
     }
+
+    @Override
+    public Operator save(Operator operator) {
+        return operatorRepository.save(operator);
+    }
 }

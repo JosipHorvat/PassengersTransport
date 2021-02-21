@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -70,5 +71,16 @@ class OperatorControllerTest {
                .andExpect(view().name("redirect:/operators"));
        verify(operatorService, times(1)).deleteById(id);
     }
+    @Test
+    void addNewOperatorForm() throws Exception{
+        Operator operator = new Operator();
+        operator.setId(1000L);
 
+        when(operatorService.save(any())).thenReturn(operator);
+
+        mockMvc.perform(post("/operators/add")
+                .contentType(MediaType.APPLICATION_FORM_URLENCODED))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(view().name("redirect:/operators"));
+    }
 }

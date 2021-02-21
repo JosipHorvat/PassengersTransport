@@ -28,6 +28,9 @@
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive" th:if="${not #lists.isEmpty(operators)}">
+
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addModal">Add New Operator</button>
+
                         <table class="table table-hover ">
                             <thead class="thead-inverse">
                             <tr>
@@ -63,6 +66,64 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New Operator</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+       <form th:action="@{operators/add}" method="post">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">First Name:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="firstName">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Last Name:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="lastName">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">OIB:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="oib">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Email:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Role:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="role">
+                    </div>
+
+                   <div class="form-group">
+                       <label for="recipient-name" class="col-form-label">Pasword:</label>
+                       <input type="text" class="form-control" id="recipient-name" name="password">
+                   </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/operator.js"></script>
 
 </body>
 </html>

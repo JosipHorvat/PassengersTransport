@@ -11,4 +11,8 @@ public interface OperatorService {
     Operator findById(Long id);
 
     void deleteById(Long idToDelete);
+
+    Operator save(Operator operator);
+
+
 }

@@ -9,6 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
 import java.util.Optional;
@@ -21,16 +22,21 @@ import static org.mockito.Mockito.*;
 @SpringBootTest
 class OperatorServiceImplTest {
 
+    private static final String LAST_NAME = "Horvat";
     @InjectMocks
     OperatorServiceImpl operatorServiceImpl;
 
     @Mock
     OperatorRepository operatorRepository;
 
+    Operator returnOperator;
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
         operatorServiceImpl = new OperatorServiceImpl(operatorRepository);
+
+        returnOperator = Operator.builder().id(1L).lastName(LAST_NAME).build();
     }
 
     @Test
@@ -65,5 +71,15 @@ class OperatorServiceImplTest {
             operatorServiceImpl.deleteById(1L);
 
         verify(operatorRepository).deleteById(anyLong());
+    }
+    @Test
+    void saveOperator() throws Exception{
+        Operator operatorToSave = Operator.builder().id(1L).build();
+
+        when(operatorRepository.save(any())).thenReturn(returnOperator);
+
+        Operator savedOperator = operatorServiceImpl.save(operatorToSave);
+        assertNotNull(savedOperator);
+        verify(operatorRepository).save(any());
     }
 }
