@@ -25,4 +25,10 @@ public class Operator extends Person{
     @Column(name = "role")
     private String role;
 
+    //TODO: Operator needs to be: role-ENUM of administrator and user  (Not sure this is going to be final case)
+    //TODO: Administrator have access to everything, user only to certain pages. Admin can delete users
+    //TODO: Operator need to have USER login page,
+    //TODO: Operator Register and confirm password validation
+    //TODO: Pasdword need to be BCrypted in database
+
 }
