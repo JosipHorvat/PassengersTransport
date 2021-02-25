@@ -1,13 +1,13 @@
 package com.josip.passenegertransport.services.servicesimpl;
 
 import com.josip.passenegertransport.domain.Manufacturer;
-import com.josip.passenegertransport.domain.Operator;
 import com.josip.passenegertransport.repositories.ManufacturerRepository;
 import com.josip.passenegertransport.services.ManufacturerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Slf4j
@@ -29,17 +29,17 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     }
 
     @Override
-    public Manufacturer findById(Long id) {
-        return null;
+    public Optional<Manufacturer> findById(Long id) {
+        return manufacturerRepository.findById(id);
     }
 
     @Override
     public void deleteById(Long idToDelete) {
-
+    manufacturerRepository.deleteById(idToDelete);
     }
 
     @Override
     public Manufacturer save(Manufacturer manufacturer) {
-        return null;
+        return manufacturerRepository.save(manufacturer);
     }
 }
