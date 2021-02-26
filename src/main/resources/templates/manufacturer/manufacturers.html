@@ -17,7 +17,23 @@
 </head>
 <body>
 
-<div class="container-fluid" style="margin-top: 20px">
+<div class="cke_panel_list" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-primary">
+                <div class="btn-group" style="align-items: center">
+                    <a href="#"  class="btn btn-primary" style="margin-left: 20px">Home</a>
+                    <a href="#"  class="btn btn-primary" style="margin-left: 20px">Vehicle</a>
+                    <a href="#"  class="btn btn-primary" style="margin-left: 20px">AAAAAAAAAAAAAAAAAAAAAA</a>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cke_panel_list" style="margin-top: 20px">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-primary">
@@ -43,9 +59,9 @@
                                 <td th:text="${manufacturer.nameOfCompany}">Operator 1</td>
                                 <td>
                                     <div class="btn-group">
-                              <a href="#" th:href="@{/manufacturers/findById/(id=${manufacturer.id})}" class="btn btn-primary" id="editButton">Update</a>
-                              <a href="#" th:href="@{/manufacturers/findById/(id=${manufacturer.id})}" class="btn btn-success" id="detailsButton">Details</a>
-                              <a href="#" th:href="@{/manufacturers/delete/(id=${manufacturer.id})}" class="btn btn-danger" id="deleteButton">Delete</a>
+                              <a href="#" th:href="@{/manufacturers/findById/(id=${manufacturer.id})}" class="btn btn-primary" id="editButton" style="margin-right: 20px">Update</a>
+                              <a href="#" th:href="@{/manufacturers/findById/(id=${manufacturer.id})}" class="btn btn-success" id="detailsButton" style="margin-right: 20px">Details</a>
+                              <a href="#" th:href="@{/manufacturers/delete/(id=${manufacturer.id})}" class="btn btn-danger" id="deleteButton" style="margin-right: 20px">Delete</a>
                                     </div>
                                 </td>
 
