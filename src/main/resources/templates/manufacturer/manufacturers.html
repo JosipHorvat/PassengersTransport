@@ -22,10 +22,14 @@
         <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-primary">
                 <div class="btn-group" style="align-items: center">
-                    <a href="#"  class="btn btn-primary" style="margin-left: 20px">Home</a>
-                    <a href="#"  class="btn btn-primary" style="margin-left: 20px">Vehicle</a>
-                    <a href="#"  class="btn btn-primary" style="margin-left: 20px">AAAAAAAAAAAAAAAAAAAAAA</a>
-
+                    <li>
+                        <a href="#" th:href="@{/index}"  class="btn btn-primary" style="margin-left: 10px">Home</a>
+                        <a href="#" th:href="@{/operators}" class="btn btn-primary" style="margin-left: 10px">Operators</a>
+                        <a href="#" th:href="@{/vehicles}" class="btn btn-primary" style="margin-left: 10px">Vehicles</a>
+                        <a href="#"  class="btn btn-primary" style="margin-left: 10px">Drivers</a>
+                        <a href="#"  class="btn btn-primary" style="margin-left: 10px">Indebted Vehicles</a>
+                        <a href="#"  class="btn btn-primary" style="margin-left: 10px">Transport</a>
+                    </li>
 
                 </div>
             </div>
@@ -55,8 +59,8 @@
                             </thead>
                             <tbody>
                             <tr th:each="manufacturer : ${manufacturers}">
-                                <td th:text="${manufacturer.id}">334</td>
-                                <td th:text="${manufacturer.nameOfCompany}">Operator 1</td>
+                                <td th:text="${manufacturer.id}">Here goes ID</td>
+                                <td th:text="${manufacturer.nameOfCompany}">Dedina Domaca Rakija</td>
                                 <td>
                                     <div class="btn-group">
                               <a href="#" th:href="@{/manufacturers/findById/(id=${manufacturer.id})}" class="btn btn-primary" id="editButton" style="margin-right: 20px">Update</a>
