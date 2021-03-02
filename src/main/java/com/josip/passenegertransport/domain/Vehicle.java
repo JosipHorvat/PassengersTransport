@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,7 +22,7 @@ import java.util.Set;
 public class Vehicle extends BaseEntity{
 
     public Vehicle(Long id, String name, String model, String registrationPlate, Boolean insurance,
-                   BigDecimal totalKilometersPassed, LocalDate dateOfManufacturing, Integer numberOfSeats,
+                   BigDecimal totalKilometersPassed, Date dateOfManufacturing, Integer numberOfSeats,
                    Set<IndebtedVehicle> indebtedVehicles, Manufacturer manufacturer) {
         super(id);
         this.name = name;
@@ -43,8 +43,8 @@ public class Vehicle extends BaseEntity{
     private String registrationPlate;
     private Boolean insurance;
     private BigDecimal totalKilometersPassed;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
-    private LocalDate dateOfManufacturing;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dateOfManufacturing;
     private Integer numberOfSeats;
 
     @OneToMany(mappedBy = "vehicle")

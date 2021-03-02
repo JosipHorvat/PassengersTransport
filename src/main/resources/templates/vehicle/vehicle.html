@@ -241,7 +241,7 @@
 
                     <div class="form-group">
                         <label for="dateOfManufacturingAdd" class="col-form-label">Date of Production:</label>
-                        <input type="text"  id="dateOfManufacturingAdd" name="dateOfManufacturing" >
+                        <input type="date"  id="dateOfManufacturingAdd" name="dateOfManufacturing" >
                     </div>
 
 
@@ -304,6 +304,11 @@
                         <input type="text" class="form-control" id="nameEdit" name="name" required>
                     </div>
 
+                    <div class="form-group">
+                        <label for="dateOfManufacturingEdit" class="col-form-label">Date of Manufacturing:</label>
+                        <input type="date" class="form-control" id="dateOfManufacturingEdit" name="dateOfManufacturing">
+                    </div>
+
 
                     <div class="form-group">
                         <label for="modelEdit" class="col-form-label">Model:</label>
@@ -355,7 +360,7 @@
 
                     <div class="form-group">
                         <label for="ddlManufacturerDetails" class="col-form-label">Country: </label>
-                        <select class="form-control" id="ddlManufacturerDetails" name="manufacturerId">
+                        <select class="form-control" id="ddlManufacturerDetails" name="manufacturerId" readonly>
                             <option>-SELECT-</option>
                             <option th:each="manufacturer : ${manufacturers}"
                                     th:value="${manufacturer.id}"
@@ -370,13 +375,18 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="dateOfManufacturingDetails" class="col-form-label">Date of Manufacturing:</label>
+                        <input type="date" class="form-control" id="dateOfManufacturingDetails" name="dateOfManufacturing" readonly>
+                    </div>
+
+                    <div class="form-group">
                         <label for="modelDetails" class="col-form-label">Model:</label>
                         <input type="text" class="form-control" id="modelDetails" name="model" readonly>
                     </div>
 
                     <div class="form-group">
                         <label for="registrationPlateDetails" class="col-form-label">Registration Plate:</label>
-                        <input type="text" class="form-control" id="registrationPlateDetails" name="registrationPlate" required>
+                        <input type="text" class="form-control" id="registrationPlateDetails" name="registrationPlate" readonly>
                     </div>
 
                     <div class="form-group">

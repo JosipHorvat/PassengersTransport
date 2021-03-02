@@ -12,6 +12,10 @@ $('document').ready(function() {
             $('#registrationPlateEdit').val(vehicle.registrationPlate);
             $('#totalKilometersPassedEdit').val(vehicle.totalKilometersPassed);
             $('#numberOfSeatsEdit').val(vehicle.numberOfSeats);
+
+            var dateOfManufacturing = vehicle.dateOfManufacturing.substr(0,10);
+            $('#dateOfManufacturingEdit').val(dateOfManufacturing);
+
         });
         $('#editModal').modal();
     });
@@ -34,6 +38,10 @@ $('document').ready(function() {
             $('#registrationPlateDetails').val(vehicle.registrationPlate);
             $('#totalKilometersPassedDetails').val(vehicle.totalKilometersPassed);
             $('#numberOfSeatsDetails').val(vehicle.numberOfSeats);
+
+            var dateOfManufacturing = vehicle.dateOfManufacturing.substr(0,10);
+            $('#dateOfManufacturingDetails').val(dateOfManufacturing);
+
             $('#lastModifiedByDetails').val(state.lastModifiedBy);
             $('#lastModifiedDateDetails').val(state.lastModifiedDate.substr(0,19).replace("T", " "));
         });
