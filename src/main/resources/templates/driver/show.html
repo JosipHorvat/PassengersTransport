@@ -33,7 +33,6 @@
     </div>
 </div>
 
-
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -48,7 +47,7 @@
                             <!-- mjesto za button -->
                             <div class="col-md-1">
                                 <a class="btn btn-default" href="#"
-                                   th:href="@{ovdje ide button link}" role="button">Change Image</a>
+                                   th:href="@{'/driver/' + ${drivers.id} + '/image'}" role="button">Change Image</a>
                             </div>
                         </div>
                     </div>
