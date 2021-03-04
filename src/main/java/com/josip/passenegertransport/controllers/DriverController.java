@@ -53,4 +53,12 @@ public class DriverController {
 
         return "redirect:/driver/" + savedDriver.getId() + "/show";
     }
+
+    @GetMapping("driver/{id}/delete")
+    public String deleteById(@PathVariable String id){
+        driverService.deleteById(Long.valueOf(id));
+        log.debug("Deleted by ID: " + id);
+
+        return "redirect:/drivers";
+    }
 }
