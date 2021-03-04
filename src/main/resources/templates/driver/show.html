@@ -1,0 +1,123 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Drivers Home</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}">
+
+    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous" th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="pannel-group">
+                <div class="panel panel-primary">
+
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h1 class="panel-title" th:text="${drivers.id}">Driver ID</h1>
+                            </div>
+                            <!-- mjesto za button -->
+                            <div class="col-md-1">
+                                <a class="btn btn-default" href="#"
+                                   th:href="@{ovdje ide button link}" role="button">Change Image</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>First Name:</h5>
+                            </div>
+                            <div class="col-md-3">
+                                <p th:text="${drivers.getFirstName()}">Josip</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Last Name:</h5>
+                            </div>
+                            <div class="col-md-3">
+                                <p th:text="${drivers.getLastName()}">Horvat</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="guru/springframework/static/images/th.jpg"
+                                     th:src="@{/images/th.jpg}"
+                                     width="200" height="200">
+                            </div>
+
+                            <div class="row">
+                            <div class="col-md-3">
+                                <h5>Phone Number:</h5>
+                            </div>
+                            <div class="col-md-3">
+                                <p th:text="${drivers.getTelephone()}">095-555-555</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="panel panel-primary" style="margin-top: 20px">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-md-11 ">
+                                    <h1 class="panel-title">Other Details</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h5>OIB:</h5>
+                                </div>
+                                <div class="col-md-3">
+                                    <p th:text="${drivers.getOib()}">12345678901</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h5>Email:</h5>
+                                </div>
+                                <div class="col-md-3">
+                                    <p th:text="${drivers.getEmail()}">josip988@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h5>Date of Birth:</h5>
+                                </div>
+                                <div class="col-md-3">
+                                    <p th:text="${drivers.getDateOfBirth()}">05-06-1993</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h5>Verified:</h5>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

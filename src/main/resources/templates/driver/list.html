@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Driver Home</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}">
+
+    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous" th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+            <div class="panel panel-primary">
+
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h1 class="panel-title" >Drivers</h1>
+                        </div>
+                        <!-- mjesto za button -->
+                        <div class="col-md-1">
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addModal">Add New </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <div class="table-responsive" th:if="${not #lists.isEmpty(drivers)}">
+                        <table class="table table-hover ">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>View</th>
+                                <th>Update</th>
+                                <th>Delete</th>
+                            </tr>
+                            </thead>
+
+                            <tr th:each="driver : ${drivers}">
+                                <td th:text="${driver.id}">334</td>
+                                <td th:text="${driver.getFirstName()}">Josip</td>
+                                <td th:text="${driver.getLastName()}">Josip</td>
+                                <td><a href="#" th:href="@{'/driver/' + ${driver.id} + '/show'}">View</a></td>
+                                <td><a href="#" th:href="@{'/driver/' + ${driver.id} + '/update'}">Update</a></td>
+                                <td><a href="#" th:href="@{'/driver/' + ${driver.id} + '/delete'}">Delete</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form th:action="@{/drivers/addNew}" method="post">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New Driver</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="idAdd" class="col-form-label">Id:</label>
+                        <input type="text" class="form-control" id="idAdd" name="id" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="firstNameAdd" class="col-form-label">First Name:</label>
+                        <input type="text" class="form-control" id="firstNameAdd" name="firstName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastNameAdd" class="col-form-label">Last Name:</label>
+                        <input type="text" class="form-control" id="lastNameAdd" name="lastName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="oibAdd" class="col-form-label">OIB:</label>
+                        <input type="text" class="form-control" id="oibAdd" name="oib" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="emailAdd" class="col-form-label">Email:</label>
+                        <input type="text" class="form-control" id="emailAdd" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dateOfBirthAdd" class="col-form-label">Date of Birth:</label>
+                        <input type="date"  id="dateOfBirthAdd" name="dateOfBirth" >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="telephoneAdd" class="col-form-label">Phone Number:</label>
+                        <input type="text" class="form-control" id="telephoneAdd" name="telephone">
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- javascripts -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- nice scroll -->
+<script src="js/jquery.scrollTo.min.js"></script>
+<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+<!--custome script for all page-->
+<script src="js/scripts.js"></script>
+
+</body>
+</html>

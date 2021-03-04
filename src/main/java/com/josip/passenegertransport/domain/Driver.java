@@ -4,7 +4,7 @@ import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,7 +17,7 @@ public class Driver extends Person{
 
 
     public Driver(Long id, String firstName, String lastName, String oib, String email, Boolean verified,
-                  LocalDate dateOfBirth, String telephone, Set<PassengersTransport> passengersTransports,
+                  Date dateOfBirth, String telephone, Set<PassengersTransport> passengersTransports,
                   Set<IndebtedVehicle> indebtedVehicles, Byte[] image) {
         super(id, firstName, lastName, oib, email);
         this.verified = verified;
@@ -39,8 +39,8 @@ public class Driver extends Person{
     @Lob
     private Byte[] image;
 
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
-    private LocalDate dateOfBirth;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dateOfBirth;
 
 
 
