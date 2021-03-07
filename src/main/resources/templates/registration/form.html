@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}">
+
+    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous" th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<div class="container" style="text-align: center">
+
+<!--    <div th:if="${message}">-->
+<!--        <div class="alert alert-success">-->
+<!--            <p th:text="${message}">Mail</p>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <div th:if="${error!=null}">-->
+<!--        <div class="alert alert-danger" role="alert">-->
+<!--            <p th:text="${error}">Error email exists</p>-->
+<!--        </div>-->
+<!--    </div>-->
+    <div class="row justify-content-md-center">
+
+        <form class="form-signing" action="#"
+              th:action="@{/registration}" th:object="${registrationRequest}"
+              method="POST">
+            <h2>Register</h2>
+            <p class="hint-text">Create your account. It's free and only
+                takes a minute.</p>
+
+<!--            <p class="alert alert-danger" role="alert"-->
+<!--               th:if="${#fields.hasGlobalErrors()}"-->
+<!--               th:each="error : ${#fields.errors('global')}" th:text="${error}">Validation-->
+<!--                error</p>-->
+
+            <div class="form-group">
+                <div class="row">
+                    <!--    firstName input field        -->
+                    <div class="col-md-6  ">
+                        <input name="firstName" type="text" th:required="required"
+                               th:field="*{firstName}" id="firstName" class="form-control"
+                               placeholder="First name"></input>
+<!--                        <p class="alert alert-danger" role="alert"-->
+<!--                           th:each="error: ${#fields.errors('firstName')}"-->
+<!--                           th:text="${error}">Validation error</p>-->
+                    </div>
+                    <!--    lastName input field        -->
+                    <div class="col-md-6 .offset-md-3">
+                        <input name="lastName" type="text" th:required="required"
+                               th:field="*{lastName}" id="lastName" class="form-control"
+                               placeholder="Last name"></input>
+<!--                        <p class="alert alert-danger" role="alert"-->
+<!--                           th:each="error : ${#fields.errors('lastName')}"-->
+<!--                           th:text="${error}">Validation error</p>-->
+                    </div>
+                </div>
+            </div>
+            <!--    email address input field        -->
+            <div class="form-group">
+                <input name="email" th:required="required" id="email"
+                       th:field="*{email}" type="text" class="form-control"
+                       placeholder="Email Address"></input>
+<!--                <p class="alert alert-danger" role="alert"-->
+<!--                   th:each="error : ${#fields.errors('email')}" th:text="${error}">Validation-->
+<!--                    error</p>-->
+            </div>
+            <!--    password input field        -->
+            <div class="form-group ">
+                <input name="password" type="password" th:field="*{password}"
+                       id="password" th:required="required" class="form-control"
+                       placeholder="password"></input>
+<!--                <p class="alert alert-danger" role="alert"-->
+<!--                   th:each="error : ${#fields.errors('password')}" th:text="${error}">Validation-->
+<!--                    error</p>-->
+            </div>
+            <!--    confirm password input field        -->
+<!--            <div class="form-group ">-->
+<!--                <input name="confirm_password" type="password"-->
+<!--                       th:field="*{confirmPassword}" id="confirmPassword"-->
+<!--                       th:required="required" class="form-control"-->
+<!--                       placeholder="Confirm password"></input>-->
+<!--                <p class="alert alert-danger" role="alert"-->
+<!--                   th:each="error : ${#fields.errors('confirmPassword')}"-->
+<!--                   th:text="${error}">Validation error</p>-->
+<!--            </div>-->
+
+
+            <div class="form-group">
+                <label class="checkbox-inline"><input type="checkbox"
+                                                      required="required"> I accept the <a href="#">Terms of
+                    Use</a> &amp; <a href="#">Privacy Policy</a></label>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-lg btn-block">Register
+                    Now</button>
+            </div>
+        </form>
+    </div>
+    <div class="text-center">
+        Already have an account? <a href="/" th:href="@{/login}">Sign in</a>
+    </div>
+</div>
+<!-- /container -->
+
+</body>
+</html>
