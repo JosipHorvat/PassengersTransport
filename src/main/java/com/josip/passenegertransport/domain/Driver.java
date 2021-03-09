@@ -4,9 +4,10 @@ import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.*;
 
 @Getter
 @Setter
@@ -33,6 +34,9 @@ public class Driver extends Person{
 
     }
 
+    @Transient
+    private Integer age;
+
     private Boolean verified;
     private String telephone;
 
@@ -49,4 +53,11 @@ public class Driver extends Person{
 
    @OneToMany( cascade = CascadeType.ALL,mappedBy = "driver")
     private Set<IndebtedVehicle> indebtedVehicles = new HashSet<>();
+
+
+    public Integer getAge() {
+        LocalDate dateOfBirth = LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(getDateOfBirth()));
+        return Period.between(dateOfBirth, LocalDate.now()).getYears();
+    }
+
 }
