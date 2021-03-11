@@ -2,20 +2,20 @@ package com.josip.passenegertransport.controllers;
 
 import com.josip.passenegertransport.domain.Driver;
 import com.josip.passenegertransport.services.DriverService;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @Controller
+@AllArgsConstructor
 public class DriverController {
 
+    @Autowired
     private final DriverService driverService;
-
-    public DriverController(DriverService driverService) {
-        this.driverService = driverService;
-    }
 
     @RequestMapping("drivers")
     public String getIndexPage(Model model) {

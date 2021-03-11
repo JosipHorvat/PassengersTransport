@@ -13,10 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static java.math.BigDecimal.TEN;
 
@@ -45,7 +42,7 @@ public class InputData implements ApplicationListener<ContextRefreshedEvent> {
         log.debug("****************LOADING DATA FROM BOOTSTRAP****************");
         log.debug("***********************************************************");
 
-        if(!operatorRepository.findAll().equals(0)){
+        if(operatorRepository.findAll().equals(0)){
             log.debug("Loading operators");
             operatorRepository.saveAll(getOperators());
         }
@@ -105,7 +102,7 @@ public class InputData implements ApplicationListener<ContextRefreshedEvent> {
         opel.setManufacturer(randomCompany);
         opel.setTotalKilometersPassed(TEN);
         opel.setNumberOfSeats(4);
-        opel.setDateOfManufacturing(LocalDate.now());
+        opel.setDateOfManufacturing(new Date());
         opel.setModel("corsa");
         opel.setInsurance(true);
 
@@ -126,7 +123,7 @@ public class InputData implements ApplicationListener<ContextRefreshedEvent> {
         josip.setTelephone("0838760974");
         josip.setEmail("josiph988@gmail.com");
         josip.setOib("1233456667");
-        josip.setDateOfBirth(LocalDate.now());
+        josip.setDateOfBirth(new Date());
         josip.setVerified(true);
 
        Set<PassengersTransport>  passengersTransports = new HashSet<>();

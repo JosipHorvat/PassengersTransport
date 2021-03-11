@@ -4,6 +4,7 @@ import com.josip.passenegertransport.domain.Manufacturer;
 import com.josip.passenegertransport.domain.Vehicle;
 import com.josip.passenegertransport.services.ManufacturerService;
 import com.josip.passenegertransport.services.VehicleService;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,10 +16,11 @@ import java.util.Set;
 
 @Slf4j
 @Controller
+@AllArgsConstructor
 public class VehicleController {
 
-    @Autowired private VehicleService vehicleService;
-    @Autowired private ManufacturerService manufacturerService;
+    @Autowired private final VehicleService vehicleService;
+    @Autowired private final ManufacturerService manufacturerService;
 
     //Get all vehicles
     @GetMapping("vehicles")

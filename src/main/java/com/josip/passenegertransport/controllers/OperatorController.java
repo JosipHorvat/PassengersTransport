@@ -3,20 +3,19 @@ package com.josip.passenegertransport.controllers;
 
 import com.josip.passenegertransport.domain.Operator;
 import com.josip.passenegertransport.services.OperatorService;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @Controller
+@AllArgsConstructor
 public class OperatorController {
 
-    private final OperatorService operatorService;
-
-    public OperatorController(OperatorService operatorService) {
-        this.operatorService = operatorService;
-    }
+  @Autowired private final OperatorService operatorService;
 
 
     @RequestMapping({"", "/", "/operators"})

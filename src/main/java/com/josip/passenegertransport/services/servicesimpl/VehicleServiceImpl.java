@@ -3,6 +3,7 @@ package com.josip.passenegertransport.services.servicesimpl;
 import com.josip.passenegertransport.domain.Vehicle;
 import com.josip.passenegertransport.repositories.VehicleRepository;
 import com.josip.passenegertransport.services.VehicleService;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,11 +14,9 @@ import java.util.Set;
 
 @Service
 @Slf4j
+@AllArgsConstructor
 public class VehicleServiceImpl implements VehicleService {
 
-    // I am using different way of service impl here.
-
-    @Autowired
     private  VehicleRepository vehicleRepository;
 
     @Override

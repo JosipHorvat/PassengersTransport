@@ -83,4 +83,9 @@ class OperatorControllerTest {
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/operators"));
     }
+    @Test
+    void initUpdateOperatorFrom() throws Exception{
+        //TODO: test update
+   }
+
 }

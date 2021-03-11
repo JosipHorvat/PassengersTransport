@@ -3,7 +3,9 @@ package com.josip.passenegertransport.controllers;
 import com.josip.passenegertransport.domain.Driver;
 import com.josip.passenegertransport.services.DriverService;
 import com.josip.passenegertransport.services.ImageService;
+import lombok.AllArgsConstructor;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,15 +20,12 @@ import java.io.IOException;
 import java.io.InputStream;
 
 @Controller
+@AllArgsConstructor
 public class ImageController {
 
-    private final ImageService imageService;
-    private final DriverService driverService;
+ @Autowired private final ImageService imageService;
+ @Autowired private final DriverService driverService;
 
-    public ImageController(ImageService imageService, DriverService driverService) {
-        this.imageService = imageService;
-        this.driverService = driverService;
-    }
 
     @GetMapping("driver/{id}/image")
     public String showUploadForm(@PathVariable String id, Model model) {

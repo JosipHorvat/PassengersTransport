@@ -3,6 +3,7 @@ package com.josip.passenegertransport.services.servicesimpl;
 import com.josip.passenegertransport.domain.Operator;
 import com.josip.passenegertransport.repositories.OperatorRepository;
 import com.josip.passenegertransport.services.OperatorService;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -12,13 +13,10 @@ import java.util.Set;
 
 @Slf4j
 @Service
+@AllArgsConstructor
 public class OperatorServiceImpl implements OperatorService {
 
     private final OperatorRepository operatorRepository;
-
-    public OperatorServiceImpl(OperatorRepository operatorRepository) {
-        this.operatorRepository = operatorRepository;
-    }
 
     @Override
     public Set<Operator> getOperators() {

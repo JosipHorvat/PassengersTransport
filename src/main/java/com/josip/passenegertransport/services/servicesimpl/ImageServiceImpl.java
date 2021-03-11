@@ -4,6 +4,7 @@ package com.josip.passenegertransport.services.servicesimpl;
 import com.josip.passenegertransport.domain.Driver;
 import com.josip.passenegertransport.repositories.DriverRepository;
 import com.josip.passenegertransport.services.ImageService;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,13 +14,10 @@ import java.io.IOException;
 
 @Slf4j
 @Service
+@AllArgsConstructor
 public class ImageServiceImpl  implements ImageService {
 
     private final DriverRepository driverRepository;
-
-    public ImageServiceImpl(DriverRepository driverRepository) {
-        this.driverRepository = driverRepository;
-    }
 
     @Override
     @Transactional

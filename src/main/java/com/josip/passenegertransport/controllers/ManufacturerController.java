@@ -2,7 +2,9 @@ package com.josip.passenegertransport.controllers;
 
 import com.josip.passenegertransport.domain.Manufacturer;
 import com.josip.passenegertransport.services.ManufacturerService;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,13 +13,11 @@ import java.util.Optional;
 
 @Slf4j
 @Controller
+@AllArgsConstructor
 public class ManufacturerController {
 
-    private final ManufacturerService manufacturerService;
+ @Autowired private final ManufacturerService manufacturerService;
 
-    public ManufacturerController(ManufacturerService manufacturerService) {
-        this.manufacturerService = manufacturerService;
-    }
 
     @RequestMapping({"", "/", "/manufacturers"})
     public String getAllManufacturers(Model model){
