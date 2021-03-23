@@ -11,6 +11,13 @@ import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.URL;
+
+// guru 235 Data validation, Zadnje sto sam uradio su anotacije za error handling
+
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -29,10 +36,21 @@ public class Manufacturer extends BaseEntity{
         this.vehicles = vehicles;
     }
 
+    @NotBlank
+    @Size(min = 1, max = 100)
     private String nameOfCompany;
+
+    @URL
     private String webSite;
+
+    @NotBlank
+    @Size(min = 1, max = 100)
     private String country;
+
+    @NotBlank
+    @Size(min = 1, max = 300)
     private String address;
+
     private String telephone;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "manufacturer")
