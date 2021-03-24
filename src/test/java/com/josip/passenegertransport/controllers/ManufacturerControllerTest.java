@@ -32,7 +32,9 @@ public class ManufacturerControllerTest {
     public void setUp() throws Exception {
         MockitoAnnotations.openMocks(this);
         manufacturerController = new ManufacturerController(manufacturerService);
-        mockMvc = MockMvcBuilders.standaloneSetup(manufacturerController).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(manufacturerController)
+                .setControllerAdvice(new ExceptionHandlerController())
+                .build();
     }
 
     @Test
