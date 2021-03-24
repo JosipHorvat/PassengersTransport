@@ -11,7 +11,7 @@ public interface ManufacturerService {
     //list of
     Set<Manufacturer> getManufacturers();
     //find byId
-    Optional<Manufacturer> findById(Long id);
+    Manufacturer findById(Long id);
     //deleteById
     void deleteById(Long idToDelete);
     //update/save

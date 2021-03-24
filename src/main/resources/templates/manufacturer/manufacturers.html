@@ -67,6 +67,8 @@
                               <a href="#" th:href="@{/manufacturers/findById/(id=${manufacturer.id})}" class="btn btn-success" id="detailsButton" style="margin-right: 20px">Details</a>
                               <a href="#" th:href="@{/manufacturers/delete/(id=${manufacturer.id})}" class="btn btn-danger" id="deleteButton" style="margin-right: 20px">Delete</a>
                                     </div>
+                                <td><a href="#" th:href="@{'/manufacturer/' + ${manufacturer.id} + '/show'}" >View</a></td>
+
                                 </td>
 
                             </tr>

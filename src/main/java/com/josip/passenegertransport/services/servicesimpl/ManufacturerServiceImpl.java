@@ -1,11 +1,16 @@
 package com.josip.passenegertransport.services.servicesimpl;
 
 import com.josip.passenegertransport.domain.Manufacturer;
+import com.josip.passenegertransport.exceptions.NotFoundException;
 import com.josip.passenegertransport.repositories.ManufacturerRepository;
 import com.josip.passenegertransport.services.ManufacturerService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashSet;
 import java.util.Optional;
@@ -27,8 +32,14 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     }
 
     @Override
-    public Optional<Manufacturer> findById(Long id) {
-        return manufacturerRepository.findById(id);
+    public Manufacturer findById(Long id) {
+        Optional<Manufacturer> manufacturerOptional = manufacturerRepository.findById(id);
+
+        if(!manufacturerOptional.isPresent()){
+            throw new NotFoundException("Manufacturer not found!!");
+        }
+
+        return manufacturerOptional.get();
     }
 
     @Override

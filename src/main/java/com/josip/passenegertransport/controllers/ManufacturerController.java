@@ -1,15 +1,17 @@
 package com.josip.passenegertransport.controllers;
 
 import com.josip.passenegertransport.domain.Manufacturer;
+import com.josip.passenegertransport.exceptions.NotFoundException;
 import com.josip.passenegertransport.services.ManufacturerService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Optional;
 
 @Slf4j
 @Controller
@@ -18,6 +20,14 @@ public class ManufacturerController {
 
  @Autowired private final ManufacturerService manufacturerService;
 
+
+    @GetMapping("/manufacturer/{id}/show")
+    public String showById(@PathVariable String id, Model model) {
+
+        model.addAttribute("manufacturer", manufacturerService.findById(Long.valueOf(id)));
+
+        return "manufacturer/show";
+    }
 
     @RequestMapping({"", "/", "/manufacturers"})
     public String getAllManufacturers(Model model){
@@ -28,7 +38,7 @@ public class ManufacturerController {
 
     @RequestMapping("manufacturers/findById")
     @ResponseBody
-    public Optional<Manufacturer> findById(Long id) {
+    public Manufacturer findById(Long id) {
         return manufacturerService.findById(id);
     }
 
@@ -51,5 +61,18 @@ public class ManufacturerController {
         manufacturerService.deleteById(id);
         log.debug("Deleted by ID: " + id);
         return "redirect:/manufacturers";
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(NotFoundException.class)
+    public ModelAndView handleNotFound(){
+
+        log.error("Handling not found exception");
+
+        ModelAndView modelAndView = new ModelAndView();
+
+        modelAndView.setViewName("404Error");
+
+        return modelAndView;
     }
 }
