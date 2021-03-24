@@ -36,7 +36,7 @@ public class ManufacturerServiceImpl implements ManufacturerService {
         Optional<Manufacturer> manufacturerOptional = manufacturerRepository.findById(id);
 
         if(!manufacturerOptional.isPresent()){
-            throw new NotFoundException("Manufacturer not found!!");
+            throw new NotFoundException("Manufacturer not found! For ID value: "+ id.toString());
         }
 
         return manufacturerOptional.get();

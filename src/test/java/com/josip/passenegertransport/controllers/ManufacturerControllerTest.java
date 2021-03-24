@@ -44,4 +44,11 @@ public class ManufacturerControllerTest {
                 .andExpect(status().isNotFound())
                 .andExpect(view().name("404Error"));
     }
+    @Test
+    public void testGetManufacturerNumberFormatException() throws Exception{
+
+        mockMvc.perform(get("/manufacturer/abcd/show"))
+                .andExpect(status().isBadRequest())
+                .andExpect(view().name("400Error"));
+    }
 }
